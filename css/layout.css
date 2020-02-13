@@ -20,6 +20,10 @@ section {
     float:left;
 }
 
+button {
+    clear: both;
+}
+
 footer {
     clear:both;
     height: 150px;
