@@ -10,27 +10,39 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="./css/base.css"/>
     <link rel="stylesheet" type="text/css" href="./css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/flex.css"/>
     <link rel="stylesheet" type="text/css" href="./css/modules.css"/>
   </head>
 
   <body>
 
     <header>
+      
       <h1>The Gallery of Horns</h1>
+      <button path="data/page-1.json">Image Set 1</button>
+      <button path="data/page-2.json">Image Set 2</button>
       <select>
-        <option value="default">Filter by Keyword</option>
+        <option id='baseOption' value="default">Filter by Keyword</option>
       </select>
     </header>
 
     <main>
-      <section id="photo-template">
+      <!-- <section id="photo-template">
         <h2></h2>
         <img src="" alt="">
         <p></p>
-      </section>
+      </section> -->
+      
+      <!-- handlebars template goes here-->
+      <script id="entry-template" type="text/x-handlebars-template">
+        <section keyword="{{keyword}}">
+          <h2>{{title}}</h2>
+          <img src="{{image_url}}" alt="">
+          <p>{{description}}</p>
+        </section>
+      </script>
 
-      <button path="data/page-1.json">Image Set 1</button>
-      <button path="data/page-2.json">Image Set 2</button>
+      
     </main>
 
     <footer>
@@ -38,6 +50,7 @@
     </footer>
 
   </body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js'></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>  
   <script src='./js/app.js'></script>
 </html>

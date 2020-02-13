@@ -17,15 +17,15 @@ section {
     width: 30%;
     height: 375px;
     margin: 5px;
-    float:left;
+    /* float:left; */
 }
 
 button {
-    clear: both;
+    /* clear: both; */
 }
 
 footer {
-    clear:both;
+    /* clear:both; */
     height: 150px;
     line-height: 150px;
     text-align: center;
