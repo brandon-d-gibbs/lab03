@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Sriracha&display=swap');
+
+section {
+    border: 1px solid darkslategrey;
+    box-shadow: 2px 3px darkslategrey;
+    border-radius: 7px;
+    padding: 14px 7px;
+    position: relative;
+    /* margin: auto;     */
+}
+h1 {
+   font-size: 2.4rem; 
+   margin: 14px; 
+   font-family: 'Sriracha', cursive;  
+}
+
+h2 {
+    font-size: 1.7rem;
+    font-family: 'Sriracha', cursive; 
+    text-align: center;
+    margin: 9px;
+}
+
+p{
+   position: absolute;
+   bottom: 14px;
+   
+}
+
+select {
+    margin: 21px;
+}

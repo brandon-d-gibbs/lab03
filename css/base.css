@@ -1,0 +1,11 @@
+/* body {
+    background-color: red;
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+#photo-template {
+    display: none;
+}
