@@ -1,21 +1,29 @@
 'use strict';
 
-const monsters = [];
-const keywordArray = [];
+let monsters = [];
+let keywordArray = [];
+let dataUrl = 'data/page-1.json';
 
-$.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON',})
-  .then(data => {
-    data.forEach(value => {
-      new HornMon(value).render();
-      // console.log('hi');
-      if (!keywordArray.includes(value.keyword)){
-        keywordArray.push(value.keyword);
-      }
+function queryData(url) {
+  monsters = [];
+  keywordArray= [];
+  console.log('url inquerryData', url);
+  $.ajax(url, {method: 'GET', dataType: 'JSON',})
+    .then(data => {
+      data.forEach(value => {
+        new HornMon(value).render();
+        // console.log('hi');
+        if (!keywordArray.includes(value.keyword)){
+          keywordArray.push(value.keyword);
+        }
+      });
+      $('option').remove();
+      populateDropDown();
+      // let x = $('section');
+      // console.log('sections yo!', x);
     });
-    populateDropDown();
-    // let x = $('section');
-    // console.log('sections yo!', x);
-  });
+
+}
 
 function HornMon(mon){
   // eslint-disable-next-line camelcase
@@ -71,8 +79,19 @@ function containsKeyword(event) {
   });
 }
 
-$('select').change(containsKeyword);
+function changeImages(e) {
+  let foo = $(e.target).attr('path');
+  console.log('button url', foo);
+  console.log('e target', $(e.target).attr('path'));
+  let bye = $('section').not('#photo-template');
+  $(bye).remove();
+  queryData(foo);
+}
 
+$('select').change(containsKeyword);
+$('button').on('click', changeImages);
+
+queryData(dataUrl);
 
 $(function() {
   console.log('ready');
