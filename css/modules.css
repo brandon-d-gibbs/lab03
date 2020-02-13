@@ -30,3 +30,10 @@ p{
 select {
     margin: 21px;
 }
+
+button {
+    height: 45px;
+    width: 100px;
+    border-radius: 7px;
+    
+}
