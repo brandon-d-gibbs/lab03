@@ -11,13 +11,14 @@ function queryData(url) {
   $.ajax(url, {method: 'GET', dataType: 'JSON',})
     .then(data => {
       data.forEach(value => {
-        new HornMon(value).render();
+        // new HornMon(value).render();
+        $('main').append(new HornMon(value).handlebarRender());
         // console.log('hi');
         if (!keywordArray.includes(value.keyword)){
           keywordArray.push(value.keyword);
         }
       });
-      $('option').remove();
+
       populateDropDown();
       // let x = $('section');
       // console.log('sections yo!', x);
@@ -55,6 +56,10 @@ console.log('keywords', keywordArray);
 // let filterOptions = $('select').html();
 
 function populateDropDown() {
+  let notBaseSelect = $('option').not("#baseOption");
+  $(notBaseSelect).remove();
+
+
   keywordArray.forEach( word => {
     // console.log('values', word);
     let $options = $('<option></option>');
@@ -92,6 +97,18 @@ $('select').change(containsKeyword);
 $('button').on('click', changeImages);
 
 queryData(dataUrl);
+
+HornMon.prototype.handlebarRender = function(){
+  let source = $("#entry-template").html();
+  let template = Handlebars.compile(source);
+  return template(this);
+};
+
+
+
+
+
+
 
 $(function() {
   console.log('ready');
